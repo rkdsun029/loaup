@@ -1,0 +1,99 @@
+﻿@using loaup_demo.Common.CommonFunctions
+@using loaup_demo.API.Models
+@using loaup_demo.Util
+
+@model loaup_demo.Areas.Common.Model.TestModel
+
+@{
+    Layout = null;
+}
+
+<div class="calendar">
+    @foreach (string key in Model.todayContents.Keys)
+    {
+        if (0 == Model.todayContents[key].Count)
+        {
+            continue;
+        }
+
+        if (false == DataSheetUtil._calendarContentsTypeList.Find(x => x._categoryName.Equals(key))._isCommon)
+        {
+            @*<div class="contentsCategory">*@
+                @*<div class="categoryName">@(key)</div>*@
+                foreach (ContentsCalendar contents in Model.todayContents[key])
+                {
+                    if (null != contents)
+                    {
+                        <div class="calendar_content_box">
+                            <div class="slot inline_block icon_size_default">
+                                <img src="@(contents.ContentsIcon)" />
+                            </div>
+
+                            <div class="contentsInfo">
+                                <span>@(contents.ContentsName)</span>
+                                <br />
+                                @foreach (string time in contents.StartTimes)
+                                {
+                                    <span>@(CommonFunctions.ConvertTimeFormatString(time, "HH:mm"))&nbsp;&nbsp;</span>
+                                }
+                            </div>
+
+                            @*@if (null != contents.RewardItems)
+                            {
+                                foreach (RewardItem item in contents.RewardItems)
+                                {
+                                    if (null != item.StartTimes)
+                                    {
+                                        <br />
+                                    }
+
+                                    <div data-tooltip="@(item.Name)" class="slot inline_block icon_size_default icon_background_grade_@(CommonFunctions.ConvertGradeToInt(item.Grade))">
+                                        <img src="@(item.Icon)" />
+                                    </div>
+
+                                    if (null != item.StartTimes)
+                                    {
+                                        foreach (string time in item.StartTimes)
+                                        {
+                                            <span>@(CommonFunctions.ConvertTimeFormatString(time, "HH:mm"))&nbsp;&nbsp;</span>
+                                        }
+
+                                        <br />
+                                    }
+                                }
+                            }*@
+                        </div>
+                    }
+                }
+
+            @*</div>*@
+
+            continue;
+        }
+
+        foreach (ContentsCalendar contents in Model.todayContents[key])
+        {
+            if (null != contents)
+            {
+                @*<div class="contentsCategory common">*@
+                    <div class="calendar_content_box">
+                        <div class="slot inline_block icon_size_default">
+                            <img src="@(contents.ContentsIcon)" />
+                        </div>
+
+                        <div class="contentsInfo">
+                            <span>@(key)</span>
+                            <br />
+                            @foreach (string time in contents.StartTimes)
+                            {
+                                <span>@(CommonFunctions.ConvertTimeFormatString(time, "HH:mm"))</span>
+                            }
+                        </div>
+                    </div>
+                @*</div>*@
+                
+                break;     
+            }
+        }
+    }
+</div>

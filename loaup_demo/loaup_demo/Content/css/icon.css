@@ -1,0 +1,149 @@
+div.icon {
+    display:inline-block;
+}
+
+
+/*화폐*/
+.icon.money_gold {
+    background: url("https://cdn-lostark.game.onstove.com/efui_iconatlas/money/money_4.png");
+    background-size: contain !important;
+    width: 15px;
+    height: 15px;
+}
+
+.icon.money_silver {
+    background: url("https://cdn-lostark.game.onstove.com/efui_iconatlas/etc/etc_14.png");
+    background-size: contain !important;
+    width: 15px;
+    height: 15px;
+}
+
+
+/*슬롯에는 꼭 크기 클래스를 지정해주세요*/
+.slot {
+    border: 1px solid #444444;
+}
+.slot.round {
+    border-radius: 50%;
+}
+
+.slot.inline_block {
+    display:inline-block;
+}
+
+.slot img, .slot_empty img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*크기*/
+.icon_size_small3 {
+    width: 1em;
+    height: 1em;
+}
+
+.icon_size_small2 {
+    width: 1.4em;
+    height: 1.4em;
+}
+
+.icon_size_small1 {
+    width: 1.8em;
+    height: 1.8em;
+}
+
+.icon_size_default {
+    width: 2.2em;
+    height: 2.2em;
+}
+
+.test { /*거심아이콘*/
+    background-image: url(https://cdn-lostark.game.onstove.com/2018/obt/assets/images/pc/sprite/sprite_profile.png);
+    background-position: -205px -173px;
+    width: 20px;
+    height: 20px;
+}
+
+
+/*아이템 등급별 색상*/
+.icon_background_grade_0 {background: linear-gradient(135deg,#313131,#585858);} /*일반*/
+.icon_background_grade_1 {background: linear-gradient(135deg,#1e2d0b,#304911);} /*고급*/
+.icon_background_grade_2 {background: linear-gradient(135deg,#112739,#113d5d);} /*희귀*/
+.icon_background_grade_3 {background: linear-gradient(135deg,#2e123c,#480d5d);} /*영웅*/
+.icon_background_grade_4 {background: linear-gradient(135deg,#452b06,#9e5f04);} /*전설*/
+.icon_background_grade_5 {background: linear-gradient(135deg,#48220b,#a24006);} /*유물*/
+.icon_background_grade_6 {background: linear-gradient(135deg,#3d3325,#dcc999);} /*고대*/
+.icon_background_grade_7 {background: linear-gradient(135deg,#0c2e2c,#2faba8);} /*에스더*/
+
+.long_background_grade_0 {background: radial-gradient(circle at 20% 200%, #585858 8%, #000000 40%);}
+.long_background_grade_1 {background: radial-gradient(circle at 20% 200%, #304911 8%, #000000 40%);}
+.long_background_grade_2 {background: radial-gradient(circle at 20% 200%, #113d5d 8%, #000000 40%);}
+.long_background_grade_3 {background: radial-gradient(circle at 20% 200%, #480d5d 8%, #000000 40%);}
+.long_background_grade_4 {background: radial-gradient(circle at 20% 200%, #9e5f04 8%, #000000 40%);}
+.long_background_grade_5 {background: radial-gradient(circle at 20% 200%, #a24006 8%, #000000 40%);}
+.long_background_grade_6 {background: radial-gradient(circle at 20% 200%, #dcc999 8%, #000000 40%);}
+.long_background_grade_7 {background: radial-gradient(circle at 20% 200%, #2faba8 8%, #000000 40%);}
+
+.font_grade_0 {color: #ffffff; text-shadow: 0px 1px 2px black; position:relative; top:-17px;}
+.font_grade_1 {color: #6fc300; text-shadow: 0px 1px 2px black; position:relative; top:-17px;}
+.font_grade_2 {color: #00b5ff; text-shadow: 0px 1px 2px black; position:relative; top:-17px;}
+.font_grade_3 {color: #bf00fe; text-shadow: 0px 1px 2px black; position:relative; top:-17px;}
+.font_grade_4 {color: #f39303; text-shadow: 0px 1px 2px black; position:relative; top:-17px;}
+.font_grade_5 {color: #ff6000; text-shadow: 0px 1px 2px black; position:relative; top:-17px;}
+.font_grade_6 {color: #c9a472; text-shadow: 0px 1px 2px black; position:relative; top:-17px;}
+.font_grade_7 {color: #3cf2e6; text-shadow: 0px 1px 2px black; position:relative; top:-17px;}
+
+/*툴팁*/
+.tbl_calendar .slot:hover::before {
+    content: attr(data-tooltip);
+}
+
+.challenge_abyss_dungeon .slot:hover::before {
+    content: attr(data-tooltip);
+}
+
+.challenge_guardian_raid .slot:hover::before {
+    content: attr(data-tooltip);
+}
+
+.armoryGems .slot:hover:before {
+    content: attr(data-tooltip);
+}
+
+[data-tooltip]:hover::before {
+    background: #222222;
+    position: absolute;
+    padding: 0.5em;
+    margin: 0.5em;
+    font-size: 0.8rem;
+}
+
+
+
+
+
+
+
+.commonPriceTag {
+    vertical-align:middle;
+    border:1px solid white;
+}
+
+.commonPriceTag .price, _commonPriceTag .icon{
+    display:inline-block;
+}
+
+.gemPrice {
+    text-align:right !important;
+}
+
+/*내실아이콘*/
+.icon_collectible_1 {}
+.icon_collectible_2 {}
+.icon_collectible_3 {}
+.icon_collectible_4 {}
+.icon_collectible_5 {}
+.icon_collectible_6 {}
+.icon_collectible_7 {}
+.icon_collectible_unknown {}

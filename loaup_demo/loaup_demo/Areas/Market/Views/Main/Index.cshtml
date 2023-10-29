@@ -1,0 +1,215 @@
+﻿@using loaup_demo.Areas.Common.Model
+@using loaup_demo.API.Models
+@using loaup_demo.Common.CommonFunctions
+@model loaup_demo.Areas.Common.Model.TestModel
+
+@{
+    Layout = "~/Views/Shared/_AreaLayout.cshtml";
+    ViewBag.MenuName = "거래소";
+}
+<style>
+    .testTable {
+        border-collapse: collapse;
+    }
+
+    .testTable td {
+        border: 1px solid #111111;
+        background: #000000;
+    }
+
+    .testTable td.price {
+        padding: 0px 5px;
+        text-align: right;
+    }
+
+    .marketItem_box {
+        width: 280px;
+        height: 45px;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        word-break: keep-all;
+        word-wrap: break-word;
+    }
+
+    .marketItem_box img {
+        position: relative;
+        display: inline;
+        width: 45px;
+        height: 45px;
+    }
+</style>
+
+<h1>거래소 시세표</h1>
+<table class="testTable">
+    <colgroup>
+        <col style="width:280px;" />
+        <col style="width:110px;" />
+        <col style="width:110px;" />
+        <col style="width:110px;" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;"></td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">전일평균가</td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">최근거래가</td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">최저가</td>
+        </tr>
+
+        @foreach (MarketItem marketItem in Model.marketList1.Items)
+        {
+            <tr>
+                <td>
+                    <div class="marketItem_box long_background_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), marketItem.Grade))">
+                        <img src="@(marketItem.Icon)" />
+                        <span class="font_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), marketItem.Grade))">@(marketItem.Name)</span>
+                    </div>
+                </td>
+                <td class="price">@(marketItem.YDayAvgPrice) <div class="icon money_gold"></div></td>
+                <td class="price">@(marketItem.RecentPrice) <div class="icon money_gold"></div></td>
+                <td class="price">@(marketItem.CurrentMinPrice) <div class="icon money_gold"></div></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="testTable">
+    <colgroup>
+        <col style="width:280px;" />
+        <col style="width:110px;" />
+        <col style="width:110px;" />
+        <col style="width:110px;" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;"></td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">전일평균가</td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">최근거래가</td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">최저가</td>
+        </tr>
+
+        @foreach (MarketItem marketItem in Model.marketList2.Items)
+        {
+            <tr>
+                <td>
+                    <div class="marketItem_box long_background_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), marketItem.Grade))">
+                        <img src="@(marketItem.Icon)" />
+                        <span class="font_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), marketItem.Grade))">@(marketItem.Name)</span>
+                    </div>
+                </td>
+                <td class="price">@(marketItem.YDayAvgPrice) <div class="icon money_gold"></div></td>
+                <td class="price">@(marketItem.RecentPrice) <div class="icon money_gold"></div></td>
+                <td class="price">@(marketItem.CurrentMinPrice) <div class="icon money_gold"></div></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="testTable">
+    <colgroup>
+        <col style="width:280px;" />
+        <col style="width:110px;" />
+        <col style="width:110px;" />
+        <col style="width:110px;" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;"></td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">전일평균가</td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">최근거래가</td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">최저가</td>
+        </tr>
+
+        @foreach (MarketItem marketItem in Model.marketList3.Items)
+        {
+            <tr>
+                <td>
+                    <div class="marketItem_box long_background_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), marketItem.Grade))">
+                        <img src="@(marketItem.Icon)" />
+                        <span class="font_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), marketItem.Grade))">@(marketItem.Name)</span>
+                    </div>
+                </td>
+                <td class="price">@(marketItem.YDayAvgPrice) <div class="icon money_gold"></div></td>
+                <td class="price">@(marketItem.RecentPrice) <div class="icon money_gold"></div></td>
+                <td class="price">@(marketItem.CurrentMinPrice) <div class="icon money_gold"></div></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<table class="testTable">
+    <colgroup>
+        <col style="width:280px;" />
+        <col style="width:110px;" />
+        <col style="width:110px;" />
+        <col style="width:110px;" />
+    </colgroup>
+    <tbody>
+        <tr>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;"></td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">전일평균가</td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">최근거래가</td>
+            <td style="font-size:12px; text-align:center; padding:5px 0px;">최저가</td>
+        </tr>
+
+        @foreach (MarketItem marketItem in Model.marketList4.Items)
+        {
+            <tr>
+                <td>
+                    <div class="marketItem_box long_background_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), marketItem.Grade))">
+                        <img src="@(marketItem.Icon)" />
+                        <span class="font_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), marketItem.Grade))">@(marketItem.Name)</span>
+                    </div>
+                </td>
+                <td class="price">@(marketItem.YDayAvgPrice) <div class="icon money_gold"></div></td>
+                <td class="price">@(marketItem.RecentPrice) <div class="icon money_gold"></div></td>
+                <td class="price">@(marketItem.CurrentMinPrice) <div class="icon money_gold"></div></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<h1>등급별 아이템 샘플</h1>
+
+<div class="marketItem_box long_background_grade_0">
+    <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_59.png" />
+    <span class="font_grade_0">수호강석</span>
+</div>
+<div class="marketItem_box long_background_grade_1">
+    <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_7_161.png" />
+    <span class="font_grade_1">태양의 은총</span>
+</div>
+<div class="marketItem_box long_background_grade_2">
+    <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_71.png" />
+    <span class="font_grade_2">오레하 융화 재료</span>
+</div>
+<div class="marketItem_box long_background_grade_3">
+    <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_8_227.png" />
+    <span class="font_grade_3">명예의 파편 주머니(대)</span>
+</div>
+<div class="marketItem_box long_background_grade_4">
+    <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_5_153.png" />
+    <span class="font_grade_4">마력석 조각</span>
+</div>
+<div class="marketItem_box long_background_grade_5">
+    <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_7_70.png" />
+    <span class="font_grade_5">재봉술 : 수선 숙련</span>
+</div>
+<div class="marketItem_box long_background_grade_6">
+    <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_7_69.png" />
+    <span class="font_grade_6">야금술 : 단조 특화</span>
+</div>
+<div class="marketItem_box long_background_grade_7">
+    <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_81.png" />
+    <span class="font_grade_7">에스더의 기운</span>
+</div>
+
+<div class="icon_size_default icon_background_grade_0"></div>
+<div class="icon_size_default icon_background_grade_1"></div>
+<div class="icon_size_default icon_background_grade_2"></div>
+<div class="icon_size_default icon_background_grade_3"></div>
+<div class="icon_size_default icon_background_grade_4"></div>
+<div class="icon_size_default icon_background_grade_5"></div>
+<div class="icon_size_default icon_background_grade_6"></div>
+<div class="icon_size_default icon_background_grade_7"></div>

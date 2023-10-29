@@ -1,0 +1,47 @@
+﻿@using loaup_demo.Areas.Common.Model
+@using loaup_demo.Util
+
+@{
+    Layout = "~/Views/Shared/_AreaLayout.cshtml";
+}
+
+<div class="serverTabList">
+    @foreach(LostarkServerInfo server in DataSheetUtil._serverList)
+    { 
+        <div class="server" data-serverId="@(server._serverId)">@(server._serverName)</div>
+    }
+</div>
+
+<table id="guildRankTest">
+    <colgroup>
+        <col style="width:5%;"/>
+        <col style="width:10%;"/>
+        <col style="width:20%;"/>
+        <col style="width:20%;"/>
+        <col style="width:5%;"/>
+        <col style="width:30%;"/>
+    </colgroup>
+    <thead>
+        <tr>
+            <td>순위</td>
+            <td>서버</td>
+            <td>길드명</td>
+            <td>길드장</td>
+            <td>인원</td>
+            <td>메시지</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for (int ii = 0; ii < 5; ++ii)
+        {
+            <tr>
+                <td>@(ii + 1)</td>
+                <td>실리안</td>
+                <td>길드명</td>
+                <td>대장</td>
+                <td>100</td>
+                <td>아무나와라</td>
+            </tr>
+        }
+    </tbody>
+</table>

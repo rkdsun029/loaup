@@ -1,0 +1,277 @@
+﻿@using loaup_demo.API.Models
+@using loaup_demo.Areas.Common.Model
+
+@model loaup_demo.Areas.CharacterSearch.Model.CharacterSearchResultModel
+
+@{
+    Layout = " ~/Views/Shared/_Layout.cshtml";
+    CharacterInfo character = Model._characterInfo;
+}
+
+<div class="characterInfo" style="background:url('@(character.ArmoryProfile.CharacterImage)');">
+    <span class="tag_server">@(character.ArmoryProfile.ServerName)</span>
+    <span class="tag_small">원정대 Lv.@(character.ArmoryProfile.ExpeditionLevel)</span>
+    <span>&nbsp;&nbsp;</span>
+    <span class="tag_className">@(character.ArmoryProfile.CharacterClassName)</span>
+    <span class="tag_small">전투 Lv.@(character.ArmoryProfile.CharacterLevel)</span>
+    <br />
+    <br />
+    <br />
+    <span class="tag_big">@(character.ArmoryProfile.ItemAvgLevel)</span>
+    @if(false == character.ArmoryProfile.ItemAvgLevel.Equals(character.ArmoryProfile.ItemMaxLevel))
+    { 
+        <span class="tag_small">(최대달성 : @(character.ArmoryProfile.ItemMaxLevel))</span>
+    }
+    <br />
+    <span class="tag">@(character.ArmoryProfile.Title)</span>
+    <br />
+    <span class="tag_big">@(character.ArmoryProfile.CharacterName)</span>
+    <br />
+    <br />
+    <br />
+    <span class="tag">길드 @(character.ArmoryProfile.GuildName)</span>
+    <span class="tag">영지 Lv.@(character.ArmoryProfile.TownLevel) @character.ArmoryProfile.TownName</span>
+    <span class="tag">PVP @(character.ArmoryProfile.PvpGradeName)</span>
+
+    <div class="profileStats">
+        @foreach (Stat stat in character.ArmoryProfile.Stats)
+        {
+            <span class="tag_small">@(stat.Type) @(stat.Value)</span>
+            <br />
+        }
+    </div>
+
+    <hr />
+    <div class="expeditionInfo">
+        @foreach (Tendency stat in character.ArmoryProfile.Tendencies)
+        {
+            <span>@(stat.Type)&nbsp;@(stat.Point)&nbsp;&nbsp;&nbsp;</span>
+        }
+        <span>&nbsp;&nbsp;&nbsp;</span>
+        @foreach (Collectible collectible in character.Collectibles)
+        {
+            <span>@(collectible.Type)&nbsp;@(collectible.Point)&nbsp;&nbsp;&nbsp;</span>
+        }
+    </div>
+    <hr />
+
+    <h4>장비</h4>
+    @foreach (ArmoryEquipment equipment in character.ArmoryEquipment)
+    {
+        <div class="equipment" style="border:1px solid white;">
+            <div class="slot icon_size_default icon_background_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), equipment.Grade))">
+                <img src="@(equipment.Icon)" />
+            </div>
+            <h5>@(equipment.Name)</h5>
+            <div>
+                <span>@(equipment.Tooltip)</span>
+            </div>
+            
+        </div>
+    }
+
+    <h4>장착각인</h4>
+    @for (int ii = 0; ii < character.ArmoryEngraving.Engravings.Count; ++ii)
+    {
+        Engraving engraving = character.ArmoryEngraving.Engravings[ii];
+        <div class="slot icon_size_default">
+            <img src="@(engraving.Icon)" />
+        </div>
+        <h5>@(engraving.Name)</h5>
+    }
+
+    <hr />
+
+    <h4>총 활성각인</h4>
+    @for (int ii = 0; ii < character.ArmoryEngraving.Effects.Count; ++ii)
+    {
+        EngravingEffect effect = character.ArmoryEngraving.Effects[ii];
+        <div class="slot icon_size_default">
+            <img src="@(effect.Icon)" />
+        </div>
+        <h5>@(effect.Name)</h5>
+    }
+
+    @foreach (Card card in character.ArmoryCard.Cards)
+    {
+        <div style="display:inline-block;"><img style="width:100px;height:150px;" src="@(card.Icon)" />X @(card.AwakeCount)</div>
+    }
+
+    @foreach (CardEffect cardEffect in character.ArmoryCard.Effects)
+    {
+        foreach (Effect effect in cardEffect.Items)
+        {
+            <h5>@(effect.Name) - @(effect.Description)</h5>
+        }
+    }
+
+    <hr />
+
+    <h4>아바타</h4>
+    @foreach (ArmoryAvatar avatar in character.ArmoryAvatars)
+    {
+        <div class="slot icon_size_default icon_background_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), avatar.Grade))">
+            <img src="@(avatar.Icon)" />
+        </div>
+        <h5>@(avatar.Type) - @(avatar.Name)</h5>
+    }
+
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+    <hr />
+
+    <hr />
+
+
+
+    <hr />
+
+    <div class="armoryGems">
+        @for (int ii = 0; ii < character.ArmoryGem.Gems.Count; ++ii)
+        {
+            Gem gem = character.ArmoryGem.Gems[ii];
+            GemEffect gemEffect = character.ArmoryGem.Effects.Find(x => x.GemSlot == gem.Slot);
+
+            <div class="gemBox">
+                <div data-tooltip="@(gemEffect.Name) - @(gemEffect.Description)" class="slot icon_size_default icon_background_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), gem.Grade))">
+                    <img src="@gem.Icon" />
+                </div>
+                <span>Lv.@(gem.Level)</span>
+            </div>
+        }
+    </div>
+
+    <hr />
+
+    <table class="armorySkills">
+        <caption>스킬 @(character.ArmoryProfile.UsingSkillPoint) / @(character.ArmoryProfile.TotalSkillPoint)</caption>
+        <colgroup>
+            <col style="width:2.2rem;" />
+            <col style="width:auto;" />
+            <col style="width:2.2rem;" />
+            <col style="width:2.2rem;" />
+        </colgroup>
+        <tbody>
+            @foreach (ArmorySkill skill in character.ArmorySkills)
+            {
+                if (null != skill.Rune)
+                {
+                    <tr>
+                        <td>
+                            <div class="slot icon_size_default">
+                                <img src="@(skill.Icon)" />
+                            </div>
+                        </td>
+
+                        <td>
+                            <span>@(skill.Name)</span>
+                            <br />
+                            @foreach (SkillTripod selectedTripod in skill.Tripods)
+                            {
+                                if (true == selectedTripod.IsSelected)
+                                {
+                                    <span>Lv.@(selectedTripod.Level)&nbsp;@(selectedTripod.Name)&nbsp;&nbsp;&nbsp;</span>
+                                }
+                            }
+                        </td>
+
+                        <td style="text-align:center;" class="skillLevel">@(skill.Level)</td>
+
+                        <td style="text-align:center;">
+                            <div class="slot round icon_size_default icon_background_grade_@((int)Enum.Parse(typeof(Constants.ItemGrade), skill.Rune.Grade))">
+                                <img src="@(skill.Rune.Icon)" />
+                            </div>
+                            <span>@(skill.Rune.Name)</span>
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr>
+                        <td>
+                            <div class="slot icon_size_default">
+                                <img src="@(skill.Icon)" />
+                            </div>
+                        </td>
+
+                        @if (true == skill.IsAwakening)
+                        {
+                            <td>
+                                <span>@($"각성기 - {skill.Name}")</span>
+                            </td>
+                            <td style="text-align:center;"></td>
+                            <td style="text-align:center;"></td>
+                        }
+                        else
+                        {
+                            <td><span>@(skill.Name)</span></td>
+                            <td style="text-align:center;" class="skillLevel">@(skill.Level)</td>
+                            <td style="text-align:center;"></td>
+                        }
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    <hr />
+
+    <div class="siblings">
+        @foreach (SiblingCharacterInfo sibling in Model._siblingList)
+        {
+            <div class="siblingBox">
+                <span class="tag_server">@(sibling.ServerName)</span>
+                <span class="tag_className">@(sibling.CharacterClassName)</span>
+                <br />
+                <span class="tag">Lv.@(sibling.CharacterLevel) @(sibling.CharacterName)</span>
+                <br />
+                <span class="tag_small">@(sibling.ItemAvgLevel)</span>
+            </div>
+        }
+    </div>
+
+
+
+    <div class="slot_empty icon_size_small2">
+        <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/tokenitem/tokenitem_11.png" />
+    </div>
+
+    <div class="slot_empty icon_size_small2">
+        <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/tokenitem/tokenitem_9.png" />
+    </div>
+
+    <div class="slot_empty icon_size_small2">
+        <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/tokenitem/tokenitem_2.png" />
+    </div>
+
+    <div class="slot_empty icon_size_small2">
+        <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/tokenitem/tokenitem_32.png" />
+    </div>
+
+    <div class="slot_empty icon_size_small2">
+        <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/tokenitem/tokenitem_39.png" />
+    </div>
+
+    <div class="slot_empty icon_size_small2">
+        <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/tokenitem/tokenitem_51.png" />
+    </div>
+
+    <div class="slot_empty icon_size_small2">
+        <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_195.png" />
+    </div>
+
+    <div class="slot_empty icon_size_small2">
+        <img src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_10_160.png" />
+    </div>
+
+    <div class="slot_empty test"></div>
+</div>
+
+<script>
+    $(function () {
+        //alert("안농");
+    });
+</script>

@@ -1,0 +1,79 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #userRankListContainer {
+        width:100%;
+        border:1px solid blue;
+    }
+
+    #userRankList {
+        width:100%;    
+    }
+
+    #userRankList td{
+        border:1px solid white;
+        text-align:center;
+    }
+
+</style>
+
+<div id="userRankListContainer">
+    <h1>직업이랑 각인 검색조건</h1>
+
+    <div>
+            스마일게이트 공식 유저 랭킹은 존재하지 않습니다. 오피셜 랭킹이 아닙니다.
+            <br/>
+            랭킹산정기준 (업데이트 주기 : N시간)
+            <br/>
+            1.로아업에 검색된 적 있는 캐릭터 들 중 최종컨텐츠 입장 가능레벨 ~ 달성가능 최대레벨 유저
+            <br/>
+            2.절대기준 : 아이템레벨
+            <br/>
+            3.동레벨일경우 아래와같이 점수 산정 (100점 기준)
+            <br/>
+             2-1.원정대 레벨점수 (1점)
+            <br/>
+             2-2.강화수치 : 딜러 > 무기강화수치 우선 / 서포터 > 방어구 평균 강화수치
+            <br/>
+             2-3.장비품질 : 딜러 > 무기품질 / 서포터 > 방어구품질
+            <br/>
+             2-4.세트효과 수치
+            <br/>
+             등등..
+    </div>
+
+    <hr />
+
+    <table id="userRankList">
+        <colgroup>
+            <col style="width:5%;"/>
+            <col style="width:10%;"/>
+            <col style="width:20%;"/>
+            <col style="width:10%;"/>
+            <col style="width:10%;"/>
+            <col style="width:auto;"/>
+        </colgroup>
+        <thead>
+            <tr>
+                <td>No.</td>
+                <td>서버</td>
+                <td>캐릭터명</td>
+                <td>직업</td>
+                <td>레벨</td>
+                <td>기타</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1000</td>
+                <td>아브렐슈드</td>
+                <td>열두글자열두글자열두글자</td>
+                <td>디스트로이어</td>
+                <td>1655.00</td>
+                <td>XXXXXXXX</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

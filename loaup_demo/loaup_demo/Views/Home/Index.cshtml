@@ -1,0 +1,184 @@
+﻿@using loaup_demo.Areas.Common.Model
+@using loaup_demo.API.Models
+@using loaup_demo.Common.CommonFunctions
+@using loaup_demo.Util
+@model loaup_demo.Areas.Common.Model.TestModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .testBanner {
+        height: 400px;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        margin: 10px 0px;
+    }
+
+    .subBanner_left {
+        display: inline-block;
+        width: 950px;
+        border: 1px solid #222222;
+        min-height: 400px;
+        overflow: hidden;
+    }
+
+    .subBanner_right {
+        display: inline-block;
+        width: 200px;
+        border: 1px solid #222222;
+        min-height: 400px;
+        overflow: hidden;
+    }
+
+    .btnSlide {
+        font-size: 30px;
+        width: 30px;
+        height: 40px;
+        font-weight: bold;
+    }
+
+    /*dddddddddddddddddddddddddd*/
+
+    .home_panel {
+        border: 1px solid red;
+        display: block;
+        margin: 0 auto;
+        min-height: 100px;
+    }
+
+    .home_panel.horizontal_1 {
+    }
+
+    .home_panel.horizontal_2 {
+        height: 450px;
+    }
+
+    .home_panel.horizontal_3 {
+    }
+
+    .home_panel.horizontal_4 {
+    }
+</style>
+
+<div class="home_panel horizontal_1">
+    <div class="news_notice">
+        <table class="tbl_news_notice">
+            <caption>로스트아크 공식 공지사항</caption>
+            @for (int ii = 0; ii < 5; ++ii)
+            {
+                <tr>
+                    <td><a href="@(Model.noticeList[ii].Link)" target="_blank">[@(Model.noticeList[ii].Type)] @(Model.noticeList[ii].Title)</a></td>
+                    <td>@CommonFunctions.ConvertTimeFormatString(Model.noticeList[ii].Date)</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="home_panel horizontal_2">
+    <div class="testBanner">
+        <div class="subBanner_left">
+            <div class="btnSlide" style="float:left;"><</div>
+            <div class="btnSlide" style="float:right;">></div>
+            <img src="https://cdn-lostark.game.onstove.com/uploadfiles/banner/da5d15a687b54f9bbf92a98924bd8389.jpg">
+        </div>
+
+        <div class="subBanner_right">
+            <img src="https://cdn-lostark.game.onstove.com/uploadfiles/banner/da5d15a687b54f9bbf92a98924bd8389.jpg">
+        </div>
+    </div>
+</div>
+
+<div class="home_panel horizontal_3">
+    
+
+
+    <h2>진행중 이벤트</h2>
+    <div class="news_event">
+        @foreach (Event news in Model.eventList)
+        {
+            if (false == "-".Equals(CommonFunctions.ConvertTimeFormatString(news.RewardDate)))
+            {
+                <div class="eventBox">
+                    <a href="@(news.Link)" target="_blank"><img src="@(news.Thumbnail)" /></a>
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<div class="home_panel horizontal_4">
+    <table>
+        <caption>개발자의 일기</caption>
+        <tr>
+            <td>111222</td>
+        </tr>
+        <tr>
+            <td>aaabbb</td>
+        </tr>
+    </table>
+</div>
+
+
+<hr />
+<hr />
+<hr />
+
+<div class="challenge_abyss_dungeon">
+    <h3>도비스</h3>
+    @foreach (ChallengeAbyssDungeon dungeon in Model.abyssDungeonList)
+    {
+        <h5>@(dungeon.Name)</h5>
+        <h5>@(dungeon.StartTime) ~ @(dungeon.EndTime)</h5>
+
+        foreach (RewardItem reward in dungeon.RewardItems)
+        {
+            if (null != reward)
+            {
+                <div data-tooltip="@(reward.Name)" class="slot inline_block icon_size_default icon_background_grade_@(CommonFunctions.ConvertGradeToInt(reward.Grade))">
+                    <img src="@reward.Icon" />
+                </div>
+            }
+        }
+    }
+</div>
+
+<hr />
+
+<div class="challenge_guardian_raid">
+    <h3>도가토</h3>
+    @foreach (GuardianRaid raid in Model.guardianRaid.Raids)
+    {
+        <h5>@(raid.Name) (전투 Lv.@(raid.MinCharacterLevel), 아이템 Lv.@(raid.MinItemLevel) 이상)</h5>
+        <div>
+            <img src="@(raid.Image)"/>
+        </div>
+    }
+
+    @if (null != Model.guardianRaid.RewardItems)
+    {
+        <table>
+            <caption>레벨별 보상</caption>
+            @foreach (LevelRewardItems levelReward in Model.guardianRaid.RewardItems)
+            {
+                if (null != levelReward)
+                {
+                    <tr>
+                        <td>@(levelReward.ExpeditionItemLevel) 이상</td>
+                        <td>
+                            @foreach (RewardItem reward in levelReward.Items)
+                            {
+                                <div data-tooltip="@(reward.Name)" class="slot inline_block icon_size_default icon_background_grade_@(CommonFunctions.ConvertGradeToInt(reward.Grade))">
+                                    <img src="@reward.Icon" />
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    }
+</div>

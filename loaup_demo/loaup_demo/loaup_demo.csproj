@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BA9736FF-6C17-4471-B08B-90D90A745E6A}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>loaup_demo</RootNamespace>
+    <AssemblyName>loaup_demo</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44369</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.1.11\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.13\lib\net45\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Binder, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Binder.2.2.4\lib\netstandard2.0\Microsoft.Extensions.Configuration.Binder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore, Version=6.1.0.0, Culture=neutral, PublicKeyToken=5d1104efbd0e675d, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Log4Net.AspNetCore.6.1.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Options, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Options.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Options.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.2.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.1\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.1\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.2.0.1\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="API\APIManager.cs" />
+    <Compile Include="API\Models\GameContents.cs" />
+    <Compile Include="API\Models\Characters.cs" />
+    <Compile Include="API\Models\Auctions.cs" />
+    <Compile Include="API\Models\Armories.cs" />
+    <Compile Include="API\Models\Markets.cs" />
+    <Compile Include="API\Models\Guilds.cs" />
+    <Compile Include="API\Models\News.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Auction\AuctionAreaRegistration.cs" />
+    <Compile Include="Areas\Auction\Controllers\MainController.cs" />
+    <Compile Include="Areas\CharacterSearch\CharacterSearchAreaRegistration.cs" />
+    <Compile Include="Areas\CharacterSearch\Controllers\MainController.cs" />
+    <Compile Include="Areas\CharacterSearch\Model\CharacterSearch.cs" />
+    <Compile Include="Areas\ClassCategory\ClassCategoryAreaRegistration.cs" />
+    <Compile Include="Areas\ClassCategory\Controllers\MainController.cs" />
+    <Compile Include="Areas\ClassCategory\Controllers\SkillController.cs" />
+    <Compile Include="Areas\Dictionary\Controllers\MainController.cs" />
+    <Compile Include="Areas\Dictionary\DictionaryAreaRegistration.cs" />
+    <Compile Include="Areas\Market\Controllers\MainController.cs" />
+    <Compile Include="Areas\Market\MarketAreaRegistration.cs" />
+    <Compile Include="Areas\Playground\Controllers\MainController.cs" />
+    <Compile Include="Areas\Playground\PlaygroundAreaRegistration.cs" />
+    <Compile Include="Areas\Rank\Controllers\GuildController.cs" />
+    <Compile Include="Areas\Rank\Controllers\UserController.cs" />
+    <Compile Include="Areas\SpecsUpHelper\Controllers\MainController.cs" />
+    <Compile Include="Areas\SpecsUpHelper\Models\SpecsUpHelper.cs" />
+    <Compile Include="Areas\SpecsUpHelper\SpecsUpHelperAreaRegistration.cs" />
+    <Compile Include="Areas\Rank\Controllers\MainController.cs" />
+    <Compile Include="Areas\Rank\RankAreaRegistration.cs" />
+    <Compile Include="Areas\Wanted\Controllers\MainController.cs" />
+    <Compile Include="Areas\Wanted\WantedAreaRegistration.cs" />
+    <Compile Include="Common\LoaupCommonModel.cs" />
+    <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\CommonModel.cs" />
+    <Compile Include="Common\CommonFunctions.cs" />
+    <Compile Include="Controllers\LayoutController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\GameInfoRepository.cs" />
+    <Compile Include="Repository\BaseRepository.cs" />
+    <Compile Include="Repository\LoaupRepository.cs" />
+    <Compile Include="Repository\Models\GetMenuInfoList.cs" />
+    <Compile Include="Util\SessionUtil.cs" />
+    <Compile Include="Util\DataSheetUtil.cs" />
+    <Compile Include="Util\CookieUtil.cs" />
+    <Compile Include="Util\SecurityUtil.cs" />
+    <Compile Include="Util\LogUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\character.css" />
+    <Content Include="Content\css\common.css" />
+    <Content Include="Content\css\tags.css" />
+    <Content Include="Content\css\marketAndAuction.css" />
+    <Content Include="Content\css\tabs.css" />
+    <Content Include="Content\css\icon.css" />
+    <Content Include="Content\css\main.css" />
+    <Content Include="Content\js\common.js" />
+    <Content Include="Content\js\constants.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="lib\jquery\jquery-3.7.1.js" />
+    <Content Include="lib\jquery\jquery-3.7.1.min.js" />
+    <Content Include="res\icon\search.png" />
+    <Content Include="res\icon\search2.png" />
+    <Content Include="res\img\icandoit.jpg" />
+    <Content Include="res\font\maruburi.zip" />
+    <Content Include="res\font\maruburi\OTF\MaruBuri-Bold.otf" />
+    <Content Include="res\font\maruburi\OTF\MaruBuri-ExtraLight.otf" />
+    <Content Include="res\font\maruburi\OTF\MaruBuri-Light.otf" />
+    <Content Include="res\font\maruburi\OTF\MaruBuri-Regular.otf" />
+    <Content Include="res\font\maruburi\OTF\MaruBuri-SemiBold.otf" />
+    <Content Include="res\font\maruburi\TTF\MaruBuri-Bold.ttf" />
+    <Content Include="res\font\maruburi\TTF\MaruBuri-ExtraLight.ttf" />
+    <Content Include="res\font\maruburi\TTF\MaruBuri-Light.ttf" />
+    <Content Include="res\font\maruburi\TTF\MaruBuri-Regular.ttf" />
+    <Content Include="res\font\maruburi\TTF\MaruBuri-SemiBold.ttf" />
+    <Content Include="res\font\nanum-all.zip" />
+    <Content Include="res\font\나눔 글꼴\D2coding\D2CodingAll\D2Coding-Ver1.3.2-20180524-all.ttc" />
+    <Content Include="res\font\나눔 글꼴\D2coding\D2CodingLigature\D2Coding-Ver1.3.2-20180524-ligature.ttc" />
+    <Content Include="res\font\나눔 글꼴\D2coding\D2CodingLigature\D2Coding-Ver1.3.2-20180524-ligature.ttf" />
+    <Content Include="res\font\나눔 글꼴\D2coding\D2CodingLigature\D2CodingBold-Ver1.3.2-20180524-ligature.ttf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\NanumSquareNeo-Variable.ttf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\OTF\NanumSquareNeoOTF-Bd.otf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\OTF\NanumSquareNeoOTF-Eb.otf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\OTF\NanumSquareNeoOTF-Hv.otf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\OTF\NanumSquareNeoOTF-Lt.otf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\OTF\NanumSquareNeoOTF-Rg.otf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\TTF\NanumSquareNeo-aLt.ttf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\TTF\NanumSquareNeo-bRg.ttf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\TTF\NanumSquareNeo-cBd.ttf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\TTF\NanumSquareNeo-dEb.ttf" />
+    <Content Include="res\font\나눔 글꼴\NanumSquareNeo\NanumSquareNeo\TTF\NanumSquareNeo-eHv.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕\NanumFontSetup_OTF_GOTHIC\NanumGothic.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕\NanumFontSetup_OTF_GOTHIC\NanumGothicBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕\NanumFontSetup_OTF_GOTHIC\NanumGothicExtraBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕\NanumFontSetup_OTF_GOTHIC\NanumGothicLight.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕\NanumFontSetup_TTF_GOTHIC\NanumGothic.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕\NanumFontSetup_TTF_GOTHIC\NanumGothicBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕\NanumFontSetup_TTF_GOTHIC\NanumGothicExtraBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕\NanumFontSetup_TTF_GOTHIC\NanumGothicLight.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕에코\NanumFontSetup_OTF_GOTHICECO\NanumGothicEco.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕에코\NanumFontSetup_OTF_GOTHICECO\NanumGothicEcoBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕에코\NanumFontSetup_OTF_GOTHICECO\NanumGothicEcoExtraBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕에코\NanumFontSetup_TTF_GOTHICECO\NanumGothicEco.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕에코\NanumFontSetup_TTF_GOTHICECO\NanumGothicEcoBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔고딕에코\NanumFontSetup_TTF_GOTHICECO\NanumGothicEcoExtraBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조\NanumFontSetup_OTF_MYUNGJO\NanumMyeongjo.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조\NanumFontSetup_OTF_MYUNGJO\NanumMyeongjoBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조\NanumFontSetup_OTF_MYUNGJO\NanumMyeongjoExtraBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조\NanumFontSetup_TTF_MYUNGJO\NanumMyeongjo.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조\NanumFontSetup_TTF_MYUNGJO\NanumMyeongjoBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조\NanumFontSetup_TTF_MYUNGJO\NanumMyeongjoExtraBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조에코\NanumFontSetup_OTF_MYUNGJOECO\NanumMyeongjoEco.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조에코\NanumFontSetup_OTF_MYUNGJOECO\NanumMyeongjoEcoBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조에코\NanumFontSetup_OTF_MYUNGJOECO\NanumMyeongjoEcoExtraBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조에코\NanumFontSetup_TTF_MYUNGJOECO\NanumMyeongjoEco.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조에코\NanumFontSetup_TTF_MYUNGJOECO\NanumMyeongjoEcoBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조에코\NanumFontSetup_TTF_MYUNGJOECO\NanumMyeongjoEcoExtraBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조옛한글\NanumMyeongjo-YetHangul.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔명조옛한글\NanumMyeongjo-YetHangul.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕\NanumFontSetup_OTF_BARUNGOTHIC\NanumBarunGothic.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕\NanumFontSetup_OTF_BARUNGOTHIC\NanumBarunGothicBold.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕\NanumFontSetup_OTF_BARUNGOTHIC\NanumBarunGothicLight.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕\NanumFontSetup_OTF_BARUNGOTHIC\NanumBarunGothicUltraLight.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕\NanumFontSetup_TTF_BARUNGOTHIC\NanumBarunGothic.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕\NanumFontSetup_TTF_BARUNGOTHIC\NanumBarunGothicBold.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕\NanumFontSetup_TTF_BARUNGOTHIC\NanumBarunGothicLight.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕\NanumFontSetup_TTF_BARUNGOTHIC\NanumBarunGothicUltraLight.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕옛한글\NanumBarunGothic-YetHangul.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른고딕옛한글\NanumBarunGothic-YetHangul.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른펜\NanumFontSetup_OTF_BARUNPEN\NanumBarunpenB.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른펜\NanumFontSetup_OTF_BARUNPEN\NanumBarunpenR.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른펜\NanumFontSetup_TTF_BARUNPEN\NanumBarunpenB.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔바른펜\NanumFontSetup_TTF_BARUNPEN\NanumBarunpenR.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔손글씨_붓\NanumBrush.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔손글씨_붓\NanumBrush.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔손글씨_펜\NanumPen.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔손글씨_펜\NanumPen.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_OTF_SQUARE\NanumSquareB.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_OTF_SQUARE\NanumSquareEB.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_OTF_SQUARE\NanumSquareL.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_OTF_SQUARE\NanumSquareOTF_acB.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_OTF_SQUARE\NanumSquareOTF_acEB.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_OTF_SQUARE\NanumSquareOTF_acL.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_OTF_SQUARE\NanumSquareOTF_acR.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_OTF_SQUARE\NanumSquareR.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_TTF_SQUARE\NanumSquareB.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_TTF_SQUARE\NanumSquareEB.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_TTF_SQUARE\NanumSquareL.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_TTF_SQUARE\NanumSquareR.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_TTF_SQUARE\NanumSquare_acB.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_TTF_SQUARE\NanumSquare_acEB.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_TTF_SQUARE\NanumSquare_acL.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어\NanumFontSetup_TTF_SQUARE\NanumSquare_acR.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어라운드\NanumFontSetup_OTF_SQUARE_ROUND\NanumSquareRoundOTFB.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어라운드\NanumFontSetup_OTF_SQUARE_ROUND\NanumSquareRoundOTFEB.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어라운드\NanumFontSetup_OTF_SQUARE_ROUND\NanumSquareRoundOTFL.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어라운드\NanumFontSetup_OTF_SQUARE_ROUND\NanumSquareRoundOTFR.otf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어라운드\NanumFontSetup_TTF_SQUARE_ROUND\NanumSquareRoundB.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어라운드\NanumFontSetup_TTF_SQUARE_ROUND\NanumSquareRoundEB.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어라운드\NanumFontSetup_TTF_SQUARE_ROUND\NanumSquareRoundL.ttf" />
+    <Content Include="res\font\나눔 글꼴\나눔스퀘어라운드\NanumFontSetup_TTF_SQUARE_ROUND\NanumSquareRoundR.ttf" />
+    <Content Include="Areas\CharacterSearch\Views\Main\Index.cshtml" />
+    <Content Include="Areas\CharacterSearch\Views\web.config" />
+    <Content Include="Areas\SpecsUpHelper\Views\web.config" />
+    <Content Include="Areas\Dictionary\Views\web.config" />
+    <Content Include="Areas\Playground\Views\web.config" />
+    <Content Include="Areas\ClassCategory\Views\web.config" />
+    <Content Include="Areas\CharacterSearch\Views\Main\NoResult.cshtml" />
+    <Content Include="Areas\Rank\Views\web.config" />
+    <Content Include="Areas\Rank\Views\Main\Index.cshtml" />
+    <Content Include="Areas\Market\Views\web.config" />
+    <Content Include="Areas\Auction\Views\web.config" />
+    <Content Include="Areas\Market\Views\Main\Index.cshtml" />
+    <Content Include="Areas\Playground\Views\Main\Index.cshtml" />
+    <Content Include="Areas\SpecsUpHelper\Views\Main\Index.cshtml" />
+    <Content Include="Areas\Dictionary\Views\Main\Index.cshtml" />
+    <Content Include="Areas\ClassCategory\Views\Main\Index.cshtml" />
+    <Content Include="Areas\Auction\Views\Main\Index.cshtml" />
+    <Content Include="Areas\Rank\Views\Guild\Index.cshtml" />
+    <Content Include="Areas\Wanted\Views\web.config" />
+    <Content Include="Areas\Wanted\Views\Main\Index.cshtml" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_AreaLayout.cshtml" />
+    <Content Include="Views\Shared\_CalendarLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Auction\Data\" />
+    <Folder Include="Areas\Auction\Views\Shared\" />
+    <Folder Include="Areas\CharacterSearch\Views\Shared\" />
+    <Folder Include="Areas\ClassCategory\Data\" />
+    <Folder Include="Areas\ClassCategory\Views\Shared\" />
+    <Folder Include="Areas\Dictionary\Data\" />
+    <Folder Include="Areas\Dictionary\Views\Shared\" />
+    <Folder Include="Areas\Market\Data\" />
+    <Folder Include="Areas\Market\Views\Shared\" />
+    <Folder Include="Areas\Playground\Data\" />
+    <Folder Include="Areas\Playground\Views\Shared\" />
+    <Folder Include="Areas\Rank\Data\" />
+    <Folder Include="Areas\Rank\Views\Shared\" />
+    <Folder Include="Areas\SpecsUpHelper\Views\Shared\" />
+    <Folder Include="Areas\Wanted\Data\" />
+    <Folder Include="Areas\Wanted\Views\Shared\" />
+    <Folder Include="Models\" />
+    <Folder Include="res\font\나눔 글꼴\NanumSquareNeo\__MACOSX\NanumSquareNeo\OTF\" />
+    <Folder Include="res\font\나눔 글꼴\NanumSquareNeo\__MACOSX\NanumSquareNeo\TTF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52031</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44369/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>이 프로젝트는 이 컴퓨터에 없는 NuGet 패키지를 참조합니다. 해당 패키지를 다운로드하려면 NuGet 패키지 복원을 사용하십시오. 자세한 내용은 http://go.microsoft.com/fwlink/?LinkID=322105를 참조하십시오. 누락된 파일은 {0}입니다.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

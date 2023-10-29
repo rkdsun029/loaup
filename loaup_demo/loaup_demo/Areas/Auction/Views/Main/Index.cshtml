@@ -1,0 +1,74 @@
+﻿@{
+    Layout = "~/Views/Shared/_AreaLayout.cshtml";
+    ViewBag.MenuName = "경매장";
+}
+
+<style>
+    /*gem temp auction*/
+    #gemPriceList td {
+        border: 1px solid white;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .gemIcon {
+        width: 50px;
+        height: 50px;
+        background-size: contain !important;
+    }
+</style>
+
+<h1>경매장 시세표</h1>
+
+<div class="gem">
+    <table id="gemPriceList">
+        <caption>레벨 별 보석 최저가</caption>
+        <tbody>
+            <tr>
+                <td></td>
+                <td colspan="3">멸화</td>
+                <td colspan="3">홍염</td>
+            </tr>
+
+            <tr>
+                <td>Lv.10</td>
+                <td><img id="gem_icon_5_1" class="gemIcon" src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_55.png" /></td>
+                <td class="gemPrice">400000</td>
+                <td><div class="icon money_gold"></div></td>
+                <td><img id="gem_icon_5_2" class="gemIcon" src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_65.png" /></td>
+                <td class="gemPrice">200000</td>
+                <td><div class="icon money_gold"></div></td>
+            </tr>
+
+            <tr>
+                <td>Lv.9</td>
+                <td><img id="gem_icon_5_1" class="gemIcon" src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_54.png" /></td>
+                <td class="gemPrice">71000</td>
+                <td><div class="icon money_gold"></div></td>
+                <td><img id="gem_icon_5_2" class="gemIcon" src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_64.png" /></td>
+                <td class="gemPrice">71000</td>
+                <td><div class="icon money_gold"></div></td>
+            </tr>
+
+            <tr>
+                <td>Lv.8</td>
+                <td><img id="gem_icon_5_1" class="gemIcon" src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_53.png" /></td>
+                <td class="gemPrice">21000</td>
+                <td><div class="icon money_gold"></div></td>
+                <td><img id="gem_icon_5_2" class="gemIcon" src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_63.png" /></td>
+                <td class="gemPrice">21000</td>
+                <td><div class="icon money_gold"></div></td>
+            </tr>
+
+            <tr>
+                <td>Lv.7</td>
+                <td><img id="gem_icon_5_1" class="gemIcon" src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_52.png" /></td>
+                <td class="gemPrice">9000</td>
+                <td><div class="icon money_gold"></div></td>
+                <td><img id="gem_icon_5_2" class="gemIcon" src="https://cdn-lostark.game.onstove.com/efui_iconatlas/use/use_9_62.png" /></td>
+                <td class="gemPrice">9000</td>
+                <td><div class="icon money_gold"></div></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

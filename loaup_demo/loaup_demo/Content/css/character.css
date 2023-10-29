@@ -1,0 +1,36 @@
+.characterInfo {
+	background-color: #15181d !important;
+	background-position-x: center !important;
+	background-repeat: no-repeat !important;
+	background-size: 40% !important;
+	padding: 1em;
+}
+
+.armorySkills td {
+	border: 1px solid white;
+}
+
+.armorySkills td.skillLevel {
+	font-size: 1.3rem;
+}
+
+.armoryGems .gemBox {
+	display: inline-block;
+	text-align: center;
+}
+
+.siblings .siblingBox {
+	border: 1px solid #333333;
+	display: inline-block;
+	width: 15em;
+	height: 5em;
+	margin-right: 0.3em;
+	margin-bottom: 0.6em;
+	padding: 0.6em;
+	box-shadow: 0px 0px 10px #000000;
+	cursor: pointer;
+}
+
+.expeditionInfo {
+	text-align: center;
+}

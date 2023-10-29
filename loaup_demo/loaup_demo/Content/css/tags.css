@@ -1,0 +1,30 @@
+/*기본*/
+span.tag {
+    font-size: 0.9rem;
+    padding: 0.4em;
+}
+
+span.tag_small {
+    font-size: 0.8rem;
+    padding: 0.3em;
+}
+
+span.tag_big {
+    font-size: 1rem;
+    padding: 0.5em;
+}
+
+/*용도*/
+span.tag_server {
+    font-size: 0.8rem;
+    background: #333333;
+    padding: 0.35em;
+    border-radius: 3px;
+}
+
+span.tag_className {
+    font-size: 0.8rem;
+    background: #333333;
+    padding: 0.35em;
+    border-radius: 3px;
+}

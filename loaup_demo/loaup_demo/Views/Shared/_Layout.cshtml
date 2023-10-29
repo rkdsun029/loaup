@@ -1,0 +1,71 @@
+﻿@using loaup_demo.Areas.Common.Model;
+@using loaup_demo.Common.CommonFunctions
+@using loaup_demo.Util;
+@using loaup_demo.API.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOAUP.GG</title>
+
+    <script src="~/lib/jquery/jquery-3.7.1.js"></script>
+    <script src="~/Content/js/main.js"></script>
+    <script src="~/Content/js/constants.js"></script>
+    <script src="~/Content/js/common.js"></script>
+
+    <link rel="stylesheet" href="~/Content/css/common.css">
+    <link rel="stylesheet" href="~/Content/css/tabs.css">
+    <link rel="stylesheet" href="~/Content/css/main.css">
+    <link rel="stylesheet" href="~/Content/css/character.css">
+    <link rel="stylesheet" href="~/Content/css/icon.css">
+    <link rel="stylesheet" href="~/Content/css/tags.css">
+
+    @*@Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")*@
+</head>
+
+<body>
+    <div class="header">
+        <div class="goToMain">LOAUP</div>
+
+        <div class="mainMenuTabList">
+            @for (int ii = 0; ii < DataSheetUtil._menuList.Count; ++ii)
+            {
+                MenuInfo menuInfo = DataSheetUtil._menuList[ii];
+
+                if (false == menuInfo._isUse)
+                {
+                    continue;
+                }
+
+                <div id="@(menuInfo._menuKey)" class="mainMenuTab" menuPath="@(menuInfo._path)">@(menuInfo._menuName)</div>
+            }
+        </div>
+    </div>
+
+    @Html.Action("Index", "Layout", new { Area = "" })
+
+    <div class="characterSearchBox">
+        @using (Html.BeginForm("Index", "Main", new { Area = "CharacterSearch" }))
+        {
+            @Html.TextBox("_characterName", string.Empty, new { @class = "form-control", @id = "searchText", @maxLength = 12, @placeholder = "캐릭터명으로 검색하기" })
+            <button type="submit" id="search"></button>
+        }
+    </div>
+
+    <div class="mainContainer">
+        @RenderBody()
+    </div>
+
+    <div class="footer">
+        <h5 class="copyright">© 2023. LOAUP.GG | LOAUP.GG isn’t endorsed by Smilegate RPG and doesn’t reflect the views or opinions of Smilegate RPG or anyone officially involved in producing or managing Lostark.</h5>
+        <h5 class="copyright">Lostark and Smilegate RPG are trademarks or registered trademarks of Smilegate RPG, Inc. Lostark © Smilegate RPG, Inc.</h5>
+    </div>
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

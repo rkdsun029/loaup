@@ -1,0 +1,55 @@
+div.mainMenuTabList {
+    margin:0 auto;
+    min-height:50px;
+}
+
+div.mainMenuTabList div.mainMenuTab {
+    display: inline-block;
+    margin: 15px 35px;
+}
+
+div.mainMenuTabList div.mainMenuTab:hover{
+    /* color: #78300F; */
+    color: #FF5000;
+    cursor: pointer;
+}
+
+
+div.subMenuTabList {
+    margin: 0 auto;
+    min-height:50px;
+}
+
+div.subMenuTabList .subMenuTab {
+    display: inline-block;
+    border: 1px solid white;
+}
+
+div.subMenuTabList .subMenuTab {
+    display: inline-block;
+    border: 1px solid white;
+}
+
+
+/*¼­¹ö ¼±ÅÃÅÇ*/
+.serverTabList {
+    margin-bottom: 10px;
+}
+
+.serverTabList .server{
+    display: inline-block;
+    border: 1px solid white;
+    padding: 5px;
+}
+
+
+
+
+table#guildRankTest {
+    width: 100%;
+}
+
+table#guildRankTest td {
+    border: 1px solid white;
+    text-align: center;
+}

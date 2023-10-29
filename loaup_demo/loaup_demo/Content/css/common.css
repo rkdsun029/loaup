@@ -1,0 +1,125 @@
+@font-face {
+    font-family: 'NanumGothic';
+    src: url("/res/font/NanumGothic-Regular.ttf") format("truetype");
+}
+
+body {
+    background: #000000;
+    color: #DDDDDD;
+    margin: 0em;
+    font-family: 'NanumGothic', Fallback, sans-serif;
+    font-size: 15px; /* Áß¿ä 1rem = 15px */
+    font-weight: bold;
+}
+
+body table {
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+body table caption {
+    font-size: 1rem;
+    text-align: left;
+}
+
+body form {
+    margin: 0rem;
+}
+
+body input {
+    background: #000000;
+    color: #DDDDDD;
+    font-family: 'NanumGothic', Fallback, sans-serif;
+    font-size: 0.9rem;
+}
+
+span {
+    display: inline-block;
+    font-size: 0.7rem;
+}
+
+hr {
+    border-style: none;
+    border-bottom: 1px solid #777777;
+}
+
+/* header */
+div.header {
+    background: #222222;
+    text-align:center;
+    min-height: 1em;
+}
+
+div.goToMain {
+    position: absolute;
+    padding: 5px;
+    margin-left: 5px;
+    color: #FF5000;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+
+/* body */
+div.mainContainer {
+    width: 1200px;
+    background: #111111;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* footer */
+div.footer {
+    display: block;
+    margin: 3em auto;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #777777;
+}
+
+h5.copyright {
+    margin: 0em;
+    padding: 0em;
+}
+
+.hide {
+    display: none;
+}
+
+/*Ä¶¸°´õ*/
+.calendar {
+    text-align: center;
+    background: #111111;
+    overflow: hidden;
+}
+
+/*.calendar .contentsCategory {
+    border: 1px solid blue;
+    display: inline-block;
+    width: 300px;
+    height: 100px;
+    overflow-y: auto;
+}*/
+
+/*.calendar .categoryName {
+    height: 25px;
+    border: 1px solid red;
+    vertical-align: middle;
+}*/
+
+.calendar .calendar_content_box {
+    display: inline-block;
+    position: relative;
+    text-align: left;
+    margin: 0.3em;
+    padding: 0.4em;
+    border: 1px solid #222222;
+}
+
+.calendar .contentsInfo {
+    display: inline-block;
+}
+
+.calendar div {
+    vertical-align: middle;
+}
