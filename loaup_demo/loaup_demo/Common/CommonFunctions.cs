@@ -71,19 +71,6 @@ namespace loaup_demo.Common.CommonFunctions
             return result;
         }
 
-        public static string ShortenString(string input, int shortenLength = 20)
-        {
-            string result = string.Empty;
-            result = input.Trim();
-
-            if (shortenLength < result.Length)
-            {
-                result = result.Substring(0, shortenLength) + "..";
-            }
-
-            return result;
-        }
-
         // 아이템 등급 숫자로 변환 (Enum >> Constants.ItemGrade)
         public static int ConvertGradeToInt(string grade)
         {

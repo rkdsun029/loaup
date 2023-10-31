@@ -18,7 +18,7 @@ namespace loaup_demo.Controllers
     [ChildActionOnly]
     public class LayoutController : Controller
     {
-        public ActionResult Index()
+        public ActionResult Calendar()
         {
             APIManager apiManager = new APIManager();
             string requestParam = string.Empty;
@@ -112,6 +112,11 @@ namespace loaup_demo.Controllers
             testModel.todayContents = dict;
 
             return View("_CalendarLayout", testModel);
+        }
+
+        public ActionResult Footer()
+        {
+            return View("_Footer");
         }
     }
 }

@@ -1,7 +1,5 @@
 ﻿@using loaup_demo.Areas.Common.Model;
-@using loaup_demo.Common.CommonFunctions
 @using loaup_demo.Util;
-@using loaup_demo.API.Models
 
 <!DOCTYPE html>
 <html>
@@ -46,7 +44,7 @@
         </div>
     </div>
 
-    @Html.Action("Index", "Layout", new { Area = "" })
+    @Html.Action("Calendar", "Layout", new { Area = "" })
 
     <div class="characterSearchBox">
         @using (Html.BeginForm("Index", "Main", new { Area = "CharacterSearch" }))
@@ -56,14 +54,20 @@
         }
     </div>
 
+    <div class="coupang_partners_ad_vertical type1">
+        <iframe src=""></iframe>
+    </div>
+
+    <div class="coupang_partners_ad_vertical type2">
+        <iframe src=""></iframe>
+    </div>
+
     <div class="mainContainer">
         @RenderBody()
     </div>
 
-    <div class="footer">
-        <h5 class="copyright">© 2023. LOAUP.GG | LOAUP.GG isn’t endorsed by Smilegate RPG and doesn’t reflect the views or opinions of Smilegate RPG or anyone officially involved in producing or managing Lostark.</h5>
-        <h5 class="copyright">Lostark and Smilegate RPG are trademarks or registered trademarks of Smilegate RPG, Inc. Lostark © Smilegate RPG, Inc.</h5>
-    </div>
+    @Html.Action("Footer", "Layout", new { Area = "" })
+
 
     @*@Scripts.Render("~/bundles/jquery")*@
     @RenderSection("scripts", required: false)
